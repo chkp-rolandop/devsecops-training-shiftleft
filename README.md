@@ -2,7 +2,7 @@
 
 ## Set up pipeline with GitHub Actions
 
-- Create github action sample workflow
+- Create github action simple workflow - rename to shiftleft.yml
 - add credentials into repo secrets
 - add shiftleft binary
 - fork https://github.com/ilavender/demo-app
