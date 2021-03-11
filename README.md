@@ -1,4 +1,4 @@
-# devsecops-training-day1
+# devsecops-training-shiftleft
 
 ## Set up pipeline with GitHub Actions
 
@@ -15,8 +15,8 @@
 - clone demo-app 
 - run shiftleft source code scan
 - build docker image
-    docker build -t chkp-rolandop/myapp ./demo-app
-    docker save -o myapp.tar chkp-rolandop/myapp
+    - docker build -t chkp-rolandop/myapp ./demo-app
+    - docker save -o myapp.tar chkp-rolandop/myapp
 - run shiftleft image scan
 
     Note:  Figure out the commands to run locally before adding them to shiftleft.yml
