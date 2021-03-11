@@ -18,5 +18,6 @@
     - docker build -t chkp-rolandop/myapp ./demo-app
     - docker save -o myapp.tar chkp-rolandop/myapp
 - run shiftleft image scan
+- run iac-assessment scan on demo-app/terraform-template folder with AWS CIS foundations terraform ruleset
 
     Note:  Figure out the commands to run locally before adding them to shiftleft.yml
