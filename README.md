@@ -23,4 +23,4 @@
     Note:  Figure out the commands to run locally before adding them to shiftleft.yml
 
 
-### Check your work agains the shiftleft.yml included in this repo.
+### Check your work against the shiftleft.yml included in this repo.
