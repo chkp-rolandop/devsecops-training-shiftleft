@@ -49,3 +49,16 @@ jobs:
           docker save -o myapp.tar rolandopcp/myapp
           chmod +x ./shiftleft
           ./shiftleft image-scan -i myapp.tar
+
+  verify-infra:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Check Terraform
+        env:
+          CHKP_CLOUDGUARD_ID: ${{ secrets.CHKP_CLOUDGUARD_ID }}
+          CHKP_CLOUDGUARD_SECRET: ${{secrets.CHKP_CLOUDGUARD_SECRET }}
+        run: |
+          git clone https://github.com/chkp-rolandop/demo-app
+          chmod +x ./shiftleft
+          ./shiftleft iac-assessment -r -64 -p ./demo-app/terraform-template
