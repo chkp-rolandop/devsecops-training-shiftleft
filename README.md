@@ -3,7 +3,7 @@
 ## Set up pipeline with GitHub Actions
 
 - Create github action simple workflow - rename to shiftleft.yml
-    - Go to github repository -> Action -> Set up Simple Workflow -> rename blank.yml to shiftleft.yml
+    - Go to github repository &rightarrow; Actions &rightarrow; Set up Simple Workflow &rightarrow; rename blank.yml to shiftleft.yml
 - add credentials into repo secrets
     - https://docs.github.com/en/actions/reference/encrypted-secrets#creating-encrypted-secrets-for-a-repository
 - add shiftleft binary into repo
