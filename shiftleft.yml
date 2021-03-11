@@ -16,7 +16,7 @@ on:
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
   # This workflow contains a single job called "build"
-  build:
+  scan-source:
     # The type of runner that the job will run on
     runs-on: ubuntu-latest
 
@@ -25,12 +25,27 @@ jobs:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v2
 
-      # Runs a set of commands using the runners shell
-      - name: Run a multi-line script
+      # Runs shiftleft source code scan on demo-app repo
+      - name: Run ShiftLeft Source Code Scan
         env: 
           CHKP_CLOUDGUARD_ID: ${{ secrets.CHKP_CLOUDGUARD_ID }}
           CHKP_CLOUDGUARD_SECRET: ${{ secrets.CHKP_CLOUDGUARD_SECRET }}
         run: |
-          chmod a+x ./shiftleft
+          chmod +x ./shiftleft
           git clone https://github.com/chkp-rolandop/demo-app
-          ./shiftleft code-scan -s ./demo-app
+          ./shiftleft code-scan -sevt 4 -s ./demo-app
+
+  build-image:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Build Container Image
+        env: 
+          CHKP_CLOUDGUARD_ID: ${{ secrets.CHKP_CLOUDGUARD_ID }}
+          CHKP_CLOUDGUARD_SECRET: ${{ secrets.CHKP_CLOUDGUARD_SECRET }}
+        run: |
+          git clone https://github.com/chkp-rolandop/demo-app
+          docker build -t rolandopcp/myapp ./demo-app
+          docker save -o myapp.tar rolandopcp/myapp
+          chmod +x ./shiftleft
+          ./shiftleft image-scan -i myapp.tar
