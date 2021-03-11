@@ -21,3 +21,6 @@
 - run iac-assessment scan on demo-app/terraform-template folder with AWS CIS foundations terraform ruleset
 
     Note:  Figure out the commands to run locally before adding them to shiftleft.yml
+
+
+### Check your work agains the shiftleft.yml included in this repo.
