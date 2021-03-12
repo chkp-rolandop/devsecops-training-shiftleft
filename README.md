@@ -1,5 +1,7 @@
 # devsecops-training-shiftleft
 
+# WARNING: THIS REPO CONTAINS MALICIOUS FILES
+
 ## DevSecOps Lab 1: Create new Repo with name shiftleft-cicd-demo
 - Set up Git on CLI
     - git config --global user.name First Last
@@ -32,17 +34,20 @@
 - fork https://github.com/ilavender/demo-app
 - set env variable secrets in yaml file
     - [Using Encrypted Secrets](https://docs.github.com/en/actions/reference/encrypted-secrets#using-encrypted-secrets-in-a-workflow) 
+
 ## ShiftLeft Lab 1: Clone this repo and run code-scan and image scan
 - Clone this repo:  git clone https://github.com/chkp-rolandop/devsecops-training-shiftleft
+- Make shiftleft binary executable
+    - chmod +x ./shiftleft
 - Set up cloudguard credentials
     - export CHKP_CLOUDGUARD_ID=<cloudguard_api_key_id>
     - export CHKP_CLOUDGUARD_SECRET=<cloudguard_api_secret>
 - Run code scan
-    - shiftleft code-scan -s ./
+    - ./shiftleft code-scan -s ./test-files
 - Build docker image
-    - docker build -t chkp-username/myapp .
+    - docker build -t chkp-username/myapp ./test-files/Dockerfile
     - docker save -o myapp.tar chkp-username/myapp
-    - shiftleft image-scan -i myapp.tar
+    - ./shiftleft image-scan -i myapp.tar
 
 ## ShiftLeft Lab 2: In shiftleft.yaml configure the following:
 - clone demo-app 
