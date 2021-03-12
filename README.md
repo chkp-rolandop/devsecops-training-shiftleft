@@ -6,6 +6,8 @@
 - Set up Git on CLI
     - git config --global user.name First Last
     - git config --global user.email email-address
+- Set up SSH keys for Github
+    - [GitHub SSH Key Documentation](https://docs.github.com/en/github/authenticating-to-github/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent)
 - Create new folder
     - mkdir shiftleft-cicd-demo
     - cd shiftleft-cicd-demo
