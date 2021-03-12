@@ -18,7 +18,7 @@
         git commit -m "first commit"\
         git branch -M main\
         git remote add origin git@github.com:chkp-rolandop/testlab.git\
-        git push -u origin main\
+        git push -u origin main
 
 ## DevSecOps Lab 2: Set up pipeline with GitHub Actions
 
