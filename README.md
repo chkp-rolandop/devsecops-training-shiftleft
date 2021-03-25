@@ -21,7 +21,7 @@
         git add README.md\
         git commit -m "first commit"\
         git branch -M main\
-        git remote add origin git@github.com:chkp-rolandop/shiftleft-cicd-demo.git\
+        git remote add origin git@github.com:chkp-[YOUR_GITHUB_USERNAME]/shiftleft-cicd-demo.git\
         git push -u origin main
 
 ## DevSecOps Lab 2: Set up pipeline with GitHub Actions
@@ -32,8 +32,6 @@
     - [GitHub Actions Syntax](https://docs.github.com/en/actions/reference/workflow-syntax-for-github-actions)
 - add credentials into repo secrets
     - [GitHub Actions Secrets](https://docs.github.com/en/actions/reference/encrypted-secrets#creating-encrypted-secrets-for-a-repository)
-    - add shiftleft binary into repo
-- fork https://github.com/ilavender/demo-app
 - set env variable secrets in yaml file
     - [Using Encrypted Secrets](https://docs.github.com/en/actions/reference/encrypted-secrets#using-encrypted-secrets-in-a-workflow) 
 
@@ -45,20 +43,23 @@
     - export CHKP_CLOUDGUARD_ID=<cloudguard_api_key_id>
     - export CHKP_CLOUDGUARD_SECRET=<cloudguard_api_secret>
 - Run code scan
-    - ./shiftleft code-scan -s ./test-files
+    - ./shiftleft code-scan -s .
 - Build docker image
     - docker build -t chkp-username/myapp ./test-files/Dockerfile
     - docker save -o myapp.tar chkp-username/myapp
     - ./shiftleft image-scan -i myapp.tar
 
-## ShiftLeft Lab 2: In shiftleft.yaml configure the following:
-- clone demo-app 
-- run shiftleft source code scan
-- build docker image
-    - docker build -t chkp-rolandop/myapp ./demo-app
-    - docker save -o myapp.tar chkp-rolandop/myapp
-- run shiftleft image scan
-- run iac-assessment scan on demo-app/terraform-template folder with AWS CIS foundations terraform ruleset
+## ShiftLeft Lab 2: Modify shiftleft.yml to run code scan, image scan and terraform scan
+- Fork demo app project into your github account - https://github.com/ilavender/demo-app
+- Copy shiftleft executable from the devsecops-training-shiftleft repo into your own.
+- In shiftleft.yml add code to perform the following:
+    - clone demo-app 
+    - run shiftleft source code scan
+    - build docker image
+        - docker build -t chkp-rolandop/myapp ./demo-app
+        - docker save -o myapp.tar chkp-rolandop/myapp
+    - run shiftleft image scan
+    - run iac-assessment scan on demo-app/terraform-template folder with AWS CIS foundations terraform ruleset
 
     Note:  Figure out the commands to run locally before adding them to shiftleft.yml
 
