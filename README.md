@@ -45,7 +45,7 @@
 - Run code scan
     - ./shiftleft code-scan -s .
 - Build docker image
-    - docker build -t chkp-username/myapp ./test-files/Dockerfile
+    - docker build -t chkp-username/myapp ./test-files/
     - docker save -o myapp.tar chkp-username/myapp
     - ./shiftleft image-scan -i myapp.tar
 
