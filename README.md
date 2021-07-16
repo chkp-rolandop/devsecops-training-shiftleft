@@ -36,7 +36,9 @@
     - [Using Encrypted Secrets](https://docs.github.com/en/actions/reference/encrypted-secrets#using-encrypted-secrets-in-a-workflow) 
 
 ## ShiftLeft Lab 1: Clone this repo and run code-scan and image scan
-- Clone this repo:  git clone https://github.com/chkp-rolandop/devsecops-training-shiftleft
+- Clone this repo into your home directory:
+    - cd
+    - git clone https://github.com/chkp-rolandop/devsecops-training-shiftleft
 - Make shiftleft binary executable
     - chmod +x ./shiftleft
 - Set up cloudguard credentials
@@ -51,7 +53,7 @@
 
 ## ShiftLeft Lab 2: Modify shiftleft.yml to run code scan, image scan and terraform scan
 - Fork demo app project into your github account - https://github.com/ilavender/demo-app
-- Copy shiftleft executable from the devsecops-training-shiftleft repo into your own.
+- Copy shiftleft executable from the devsecops-training-shiftleft folder into your own shiftleft-cicd-demo folder.
 - In shiftleft.yml add code to perform the following:
     - clone demo-app 
     - run shiftleft source code scan
